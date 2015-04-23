@@ -176,7 +176,16 @@ if ($password==$conf_password||$conf_enablepassword==""){
 				if($confrouterconfig=="dhcp"){
 					$c.="iface wlan0 inet dhcp\n";
 				}
-				if($confroutersecuritytype=="wep")$c.="wireless-key $confroutersecuritykey\n";
+				
+				
+				if($confroutersecuritytype=="nessuna"){
+					$c.="wireless-essid \"$confrouterssid\"\n";
+					$c.="wireless-mode managed\n"; 
+				}
+				if($confroutersecuritytype=="wep"){
+					$c.="wireless-essid \"$confrouterssid\"\n";
+					$c.="wireless-key $confroutersecuritykey\n";
+				}
 				if($confroutersecuritytype=="wpa")$c.="pre-up wpa_supplicant -iwlan0 -c /etc/wpa_supplicant.conf -B\n";
 				
 				$fp=fopen("/etc/network/interfaces","w");
