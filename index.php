@@ -1,6 +1,9 @@
-
 <?php
-
+/* Arietta	
+ * Wi-fi
+ * Web
+ * Config
+ */
 	
 	function waitdiv($t,$location){
 	echo"
@@ -36,7 +39,7 @@ if ($password==$conf_password||$conf_enablepassword==""){
 		
 
 			sleep(5);	
-			header("location:index.php?op=setup");
+			header("location:index.php");
 			break;
 			
 		case "update":
