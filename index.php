@@ -32,7 +32,7 @@ if ($password==$conf_password||$conf_enablepassword==""){
 	switch($op){
 					
 		case "rescan":
-			//cpvtr_exec("StratoBoot");
+			//cpvtr_exec("ariettaBoot");
 			shell_exec("/sbin/iwconfig wlan0 mode Managed &&
 						/sbin/ifup wlan0 &&
 						/sbin/iwlist wlan0 scan | grep -i 'essid'>/tmp/list.txt");
@@ -119,7 +119,7 @@ if ($password==$conf_password||$conf_enablepassword==""){
 				fclose($fp);
 				
 				$c="ddns-update-style none;\n";
-				$c.="option domain-name \"strato.bt\";\n";
+				$c.="option domain-name \"arietta.bt\";\n";
 				$c.="option domain-name-servers $confmasteraddress;\n";
 				$c.="\n";
 				$c.="default-lease-time 600;\n";
@@ -307,7 +307,7 @@ if($conf_enablepassword!=""){
 						channel	<input type='text' name='confmasterchannel' value='<?=@$conf_masterchannel;?>' style='width:100px;'><br>
 					</span>
 					
-					connetti strato 3d al router 
+					connetti arietta al router 
 					 <label class="switch switch-blue" >
 					  <input type="checkbox" class="switch-input" name="confenablerouter" id="confenablerouter" <?php if (@$conf_enablerouter!="")echo"checked"?> onchange="if(confenablerouter.checked){confSrouter.style.display='inline';confSmaster.style.display='none';}else{ confSrouter.style.display='none';confSmaster.style.display='inline';}" >
 					  <span class="switch-label" data-on="on" data-off="off"></span>
